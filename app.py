@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -15,4 +16,5 @@ def get_lis_data():
     return jsonify(local_data)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    # Usando o Waitress para servir a aplicação
+    serve(app, host='0.0.0.0', port=5000)
